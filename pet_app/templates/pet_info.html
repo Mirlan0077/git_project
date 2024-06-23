@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Info</title>
+
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <img src="{% static pet.get_image %}" alt="Pet Image">
+    <p>Имя: {{ pet.name }}</p>
+    <p>Возраст: {{ pet.age }}</p>
+    <p>Уровень сытости: {{ pet.fullness }}</p>
+    <p>Уровень счастья: {{ pet.happiness }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Потвердить</button>
+    </form>
+</body>
+</html>
